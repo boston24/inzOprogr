@@ -1,0 +1,45 @@
+<!DOCTYPE html> 
+<html lang=”pl”> 
+<head>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3.0.1/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+
+
+    <p></p><b>Zadanie</b></p>
+    <p>Oblicz objętość ostrosłupa o wysokości H, gdzie podstawa to trójkąt równoboczny o boku a.</p>
+    <p><b>Dane wejściowe</b></p>
+    
+    <form id="form">
+        H = <input type="number" name="formH" value=8><br>
+        a = <input type="number" name="formA" value=6><br><br>
+        <input type="button" onclick="myFunction()" value="Ok">
+    </form> 
+    
+    <p><b>Rysunek</b></p>
+    
+    <svg height="250" width="500">
+        <polygon points="220,10 300,210 170,250 123,234" style="fill:none;stroke:purple;stroke-width:1" />
+    </svg>
+    
+    <p><b>Rozwiązanie</b></p>
+    <p>
+        \(V\)  \(=\) \(1\over3\) \(*\) \(a^2*\sqrt{3}\over4\) \(*\) \(H\) \(=\) \(1\over3\) \(*\) <text id="Pp">Pp</text> \(*\) <text id="H">H</text> \(=\) <text id="out">?</text>
+    </p>
+    <p id="a"></p>
+    <script>
+    function myFunction() {
+        var H = document.forms["form"]["formH"].value;  
+        var a = document.forms["form"]["formA"].value;
+        var Pp = Math.round((((a*a*Math.sqrt(3))/4) + Number.EPSILON) * 100) / 100;
+        var out = Math.round(((Pp*H/3) + Number.EPSILON) * 100) / 100;
+        document.getElementById("Pp").innerHTML = Pp;
+        document.getElementById("H").innerHTML = H;
+        document.getElementById("a").innerHTML = "Wynik to " + out;
+        document.getElementById("out").innerHTML = out;
+    }
+    </script>
+    
+</body> 
+</html>
